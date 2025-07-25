@@ -97,7 +97,19 @@ useSeoMeta({
   twitterDescription: `recipes for ${data.value?.name}`,
   twitterImage: data.value?.image,
   twitterCard: "summary",
-  lang: "en",
+});
+
+useHead({
+  htmlAttrs: {
+    lang: "en",
+  },
+  link: [
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon.png",
+    },
+  ],
 });
 </script>
 
