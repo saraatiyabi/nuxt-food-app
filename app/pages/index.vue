@@ -24,7 +24,7 @@ const { data, status, error } = await useFetch<RecipesResponse>(
               Discover recipes helping you to find the easiest way to cook.
             </p>
             <button
-              class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-lg cursor-pointer"
+              class="px-4 py-2 text-white self-start bg-dodgeroll-gold-400 rounded-md text-lg cursor-pointer"
             >
               Browse Recipes
             </button>
@@ -81,11 +81,12 @@ const { data, status, error } = await useFetch<RecipesResponse>(
                   <span>{{ recipe.rating }}</span>
                 </div>
               </div>
-              <button
+              <NuxtLink
+                :to="`/recipes/${recipe.id}`"
                 class="px-4 py-2 text-white self-start bg-dodgeroll-gold-400 rounded-md text-base lg:text-lg cursor-pointer"
               >
                 View
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>
