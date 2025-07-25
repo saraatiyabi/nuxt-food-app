@@ -71,6 +71,7 @@
 
 <script setup lang="ts">
 import { type Recipe } from "~~/types/types";
+
 const route = useRoute();
 const { id } = route.params;
 
@@ -84,6 +85,20 @@ if (error.value) {
     statusMessage: error.value.statusMessage,
   });
 }
+
+useSeoMeta({
+  title: data.value?.name,
+  description: `recipes for ${data.value?.name}`,
+  ogTitle: data.value?.name,
+  ogDescription: `recipes for ${data.value?.name}`,
+  ogImage: data.value?.image,
+  ogUrl: `http://localhost:3000/recipes/${data.value.id}`,
+  twitterTitle: data.value?.name,
+  twitterDescription: `recipes for ${data.value?.name}`,
+  twitterImage: data.value?.image,
+  twitterCard: "summary",
+  lang: "en",
+});
 </script>
 
 <style scoped></style>

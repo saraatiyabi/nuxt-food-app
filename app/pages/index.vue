@@ -7,6 +7,19 @@ import { type RecipesResponse } from "./../../types/types";
 const { data, status, error } = await useFetch<RecipesResponse>(
   "https://dummyjson.com/recipes?limit=12"
 );
+
+useSeoMeta({
+  title: "Nuxtcipes",
+  description: "Recipes for you to cook!",
+  ogTitle: "Nuxtcipes",
+  ogDescription: "Recipes for you to cook!",
+  ogImage: "/nuxt-course-hero.png",
+  ogUrl: `http:localhost:3000`,
+  twitterTitle: "Nuxtcipes",
+  twitterDescription: "Recipes for you to cook!",
+  twitterImage: "/nuxt-course-hero.png",
+  twitterCard: "summary",
+});
 </script>
 
 <template>
@@ -45,6 +58,7 @@ const { data, status, error } = await useFetch<RecipesResponse>(
           Check out our most popular recipes!
         </p>
         <div
+          v-if="!error"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8"
         >
           <div
@@ -90,6 +104,10 @@ const { data, status, error } = await useFetch<RecipesResponse>(
             </div>
           </div>
         </div>
+        <p class="text-md" v-else>
+          OOPs something went wrong while loading recipes! please try again in a
+          while!
+        </p>
       </section>
     </main>
   </div>
